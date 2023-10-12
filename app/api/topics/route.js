@@ -9,3 +9,16 @@ export async function POST(req){
     return NextResponse.json({message:"Topic created"},{status:201})
 
 }
+
+export async function GET() {
+    await connectMongoDB()
+    const topics = await Topic.find()
+    return NextResponse.json({topics})
+}
+
+export async function DELETE(req) {
+    const id= req.nextUrl.searchParams.get("id")
+    await connectMongoDB()
+    await Topic.findByIdAndDelete(id)
+    return NextResponse.json({message:"Topic deleted"},{status:200})
+}
