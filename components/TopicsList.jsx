@@ -3,10 +3,11 @@ import RemoveBtn from "./RemoveBtn";
 import {HiPencilAlt} from "react-icons/hi"
 
 const getTopics = async() =>{
+    const apiURL=process.env.API_URL
     try {
        
         
-        const res= await fetch("http://localhost:3000/api/topics",{
+        const res= await fetch(`${apiURL}/topics`,{
             cache:"no-store"
         })
         if(!res.ok) {

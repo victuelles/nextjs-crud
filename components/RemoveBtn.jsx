@@ -8,7 +8,7 @@ export default function RemoveBtn({id}){
     const removeTopic=async()=>{
         const confirmed= confirm("Are you sure?")
         if(confirmed){
-            await fetch(`http://localhost:3000/api/topics?id=${id}`,{
+            await fetch(`/api/topics?id=${id}`,{
                 method:"DELETE"
             })
             router.refresh()
