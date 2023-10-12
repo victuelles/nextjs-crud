@@ -4,14 +4,14 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 
 export default function EditTopicForm({id,title,description}) {
-    console.log(id,title,description)
+ 
     const router= useRouter()
     const [newTitle,setNewTitle]=useState(title)
     const [newDescription,setNewDescription]=useState(description)
     const handleSubmit=async(e)=>{
         e.preventDefault()
         try {
-            const res= await fetch(`http://localhost:3000/api/topics/${id}`,{
+            const res= await fetch(`${process.env.API_URL}/api/topics/${id}`,{
                 method:"PUT",
                 headers:{
                     "Content-type":"application/json"
