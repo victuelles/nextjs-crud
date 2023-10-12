@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 
-export default function AddTopicForm() {
+export default function AddTopicF() {
     const router= useRouter()
     const [title,setTitle]=useState("")
     const [description,setDescription]=useState("")
